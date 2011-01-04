@@ -106,13 +106,14 @@ h1.title {
 	font-size:25px;
 	margin-bottom: 20px;
 	/* 	font-family: 'MyriadWebBold';  */
-	color: #7c7c7c;
+	color: #666666;
 }
 
 .node h2.title {
 	font-size:30px;
 	/* 	font-family: 'MyriadWebBold';  */
 	margin-left: 470px;
+	color: #7c7c7c;
 }
 
 

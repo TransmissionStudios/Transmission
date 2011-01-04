@@ -81,7 +81,8 @@
 
   <div class="content">
     <div id="product-image"><?php print $node->field_project_image[0]['view']; //Image ?></div>
-    <h2 class="title"><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
+    <!-- Link removed as full page not correct <h2 class="title"><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>  -->
+	<h2 class="title"><?php print $title; ?></h2>
 		<?php print $node->content['body']["#value"]; ?>
   </div>
 
