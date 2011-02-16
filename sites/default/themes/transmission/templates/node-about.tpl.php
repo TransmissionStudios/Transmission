@@ -97,7 +97,7 @@
   		<p>Transmission is a digital design and development studio with offices in London. We have particular experience in B2B and have worked with several major global brands.</p>
 		<p>We work direct with clients to help communicate their brand and products to customers using the web and mobile.</p>
 		<p>We also frequently work with agencies, who use our 10+ years of experience as an additional resource to strengthen their offering to their clients.</p>
-		<p>We are particularly experienced in developing sites with Drupal, we use it because of its speed, flexibility and stability. Please see <a href="content/about-drupal">this page</a> for more information about Drupal.</p>
+		<p>We are particularly experienced in developing sites with Drupal, we use it because of its ease of use, flexibility and stability. Please see <a href="about-drupal">this page</a> for more information about Drupal.</p>
     </div>
   
 </div>
