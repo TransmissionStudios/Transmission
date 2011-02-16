@@ -89,7 +89,8 @@
  *   $db_url = 'mysqli://username:password@localhost/databasename';
  *   $db_url = 'pgsql://username:password@localhost/databasename';
  */
-$db_url = 'mysqli://root@localhost/transmission';
+$db_url = 'mysqli://root@localhost/transmission'; 	//Dev server
+//$db_url = 'mysqli://transmi1_trans:transmi:transmi1@localhost/transmission';	//Live server
 $db_prefix = '';
 
 /**
