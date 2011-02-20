@@ -98,6 +98,46 @@
     </div>
   <?php endif; ?>
 
+	<?php
+		$devKey = 'ABQIAAAAFl77mNVTBDIxcIFDYVLtrBS2YoDOH1_EenGei1y4QGQ5O8iqGRTyB39w69BuCia-elL_NGE54ZOd8w';
+		$liveKey = 'ABQIAAAAFl77mNVTBDIxcIFDYVLtrBRpz-37fZHG1fMEgnZtlphUxMsBKRSt2mbCOcdy-OaGuVIG5top6f-s9w';
+	
+	  drupal_add_html_head('<script rel="lightbox" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key='.$liveKey.'"
+	      type="text/javascript"></script>
+	    <script type="text/javascript">
+
+	    //<![CDATA[
+
+	    function load() {
+	      if (GBrowserIsCompatible()) {
+	        var map = new GMap2(document.getElementById("map"));
+	        map.addControl(new GSmallMapControl());
+	        map.addControl(new GMapTypeControl());
+	      	
+			var point = new GLatLng(51.46249712959607,-0.1389699429273);
+			map.setCenter(point, 15);
+			
+			var marker = new GMarker(point);
+			map.addOverlay(marker);
+			
+		map.openInfoWindow(point, "<b>Address:</b>" + "<br>18-20 Bromells Road<br>London SW4 0LL" + "<p><b>Phone:</b> +44 (0) 20 7622 4421")
+		  }
+	    }
+
+	    //]]>
+	    </script>
+	    <script type="text/javascript">
+	    window.onload = function() {
+	      load();
+	    }
+	    window.onunload = function() {
+	      GUnload();
+	    } 
+	  </script>');
+	?>
+	
+	<?php print ('<div id="map" style="width: 400px; height: 300px"></div>'); ?>
+
 	<div id="contactContent">
    	<div id="contactInfo">
   		<p>
