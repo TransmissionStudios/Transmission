@@ -1,4 +1,4 @@
-// $Id: layout.js,v 1.2.4.2 2009/10/05 22:40:35 merlinofchaos Exp $
+// $Id: layout.js,v 1.3 2010/01/21 07:11:41 sdboyer Exp $
 /**
  * @file layout.js
  *

@@ -1,5 +1,5 @@
 <?php
-// $Id: page_site_name.inc,v 1.1.2.1 2010/02/08 20:37:11 merlinofchaos Exp $
+// $Id: page_site_name.inc,v 1.2 2010/10/11 22:18:22 sdboyer Exp $
 
 /**
  * @file

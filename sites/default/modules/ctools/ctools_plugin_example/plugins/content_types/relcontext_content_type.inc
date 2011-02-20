@@ -1,5 +1,5 @@
 <?php
-// $Id: relcontext_content_type.inc,v 1.1.2.2 2010/01/29 19:54:02 merlinofchaos Exp $
+// $Id: relcontext_content_type.inc,v 1.3 2010/01/29 19:53:48 merlinofchaos Exp $
 
 
 /**

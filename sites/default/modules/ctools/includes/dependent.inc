@@ -1,5 +1,5 @@
 <?php
-// $Id: dependent.inc,v 1.5.2.2 2010/01/29 19:44:39 merlinofchaos Exp $
+// $Id: dependent.inc,v 1.9 2011/01/04 01:21:30 merlinofchaos Exp $
 
 /**
  * @file
@@ -124,31 +124,32 @@
 /**
  * Process callback to add dependency to form items.
  */
-function ctools_dependent_process($element, $edit, &$form_state, &$form) {
+function ctools_dependent_process($element, &$form_state, &$form) {
   if (isset($element['#dependency'])) {
-    if (!isset($element['#dependency_count'])) {
-      $element['#dependency_count'] = 1;
-    }
-    if (!isset($element['#dependency_type'])) {
-      $element['#dependency_type'] = 'hide';
-    }
-
-    $js = array(
-      'values' => $element['#dependency'],
-      'num' => $element['#dependency_count'],
-      'type' => $element['#dependency_type'],
-    );
-
-    if (!empty($form_state['ajax'])) {
-      $form_state['js settings']['CTools']['dependent'][$element['#id']] = $js;
-    }
-    else {
-      ctools_add_js('dependent');
-      $options['CTools']['dependent'][$element['#id']] = $js;
-      drupal_add_js($options, 'setting');
-    }
+    // Don't actually add any javascript until render time.
+    $element['#pre_render'][] = 'ctools_dependent_pre_render';
   }
 
   return $element;
 }
 
+function ctools_dependent_pre_render($element) {
+  if (!isset($element['#dependency_count'])) {
+    $element['#dependency_count'] = 1;
+  }
+  if (!isset($element['#dependency_type'])) {
+    $element['#dependency_type'] = 'hide';
+  }
+
+  $js = array(
+    'values' => $element['#dependency'],
+    'num' => $element['#dependency_count'],
+    'type' => $element['#dependency_type'],
+  );
+
+  ctools_add_js('dependent');
+  $options['CTools']['dependent'][$element['#id']] = $js;
+  drupal_add_js($options, 'setting');
+
+  return $element;
+}

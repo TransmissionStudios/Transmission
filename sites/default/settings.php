@@ -89,8 +89,9 @@
  *   $db_url = 'mysqli://username:password@localhost/databasename';
  *   $db_url = 'pgsql://username:password@localhost/databasename';
  */
-$db_url = 'mysqli://root@localhost/transmission'; 	//Dev server
-//$db_url = 'mysqli://transmi1_trans:transmi:transmi1@localhost/transmission';	//Live server
+$db_url = 'mysqli://root:root@localhost/transmission'; 	//Dev server
+//$db_url = 'mysqli://transmi1_transmi:transmi1@localhost/transmi1_trans';	//Live server
+//$db_url = 'mysqli://transmi1_test:gta03@localhost/transmi1_trans';	//Live server
 $db_prefix = '';
 
 /**
@@ -238,3 +239,20 @@ ini_set('url_rewriter.tags',        '');
 #   'forum'      => 'Discussion board',
 #   '@count min' => '@count minutes',
 # );
+
+$databases = array (
+  'default' => 
+  array (
+    'default' => 
+    array (
+      'driver' => 'mysql',
+      'database' => 'transmission',
+      'username' => 'root',
+      'password' => '',
+      'host' => 'localhost',
+      'port' => '',
+      'prefix' => '',
+    ),
+  ),
+);
+$drupal_hash_salt = 'YCS_f2iOwiemF7k3woN1y8dElXnYPVfI-GSi2O8D7wE';

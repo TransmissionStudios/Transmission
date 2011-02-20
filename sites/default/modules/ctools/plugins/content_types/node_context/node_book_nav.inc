@@ -1,5 +1,5 @@
 <?php
-// $Id: node_book_nav.inc,v 1.1.2.1 2010/01/29 20:18:25 merlinofchaos Exp $
+// $Id: node_book_nav.inc,v 1.4 2010/10/11 22:18:22 sdboyer Exp $
 
 if (module_exists('book')) {
   /**
@@ -17,7 +17,7 @@ if (module_exists('book')) {
 }
 
 function ctools_node_book_nav_content_type_render($subtype, $conf, $panel_args, $context) {
-  $node = isset($context->data) ? drupal_clone($context->data) : NULL;
+  $node = isset($context->data) ? clone($context->data) : NULL;
   $block = new stdClass();
   $block->module = 'book_nav';
 
@@ -38,6 +38,7 @@ function ctools_node_book_nav_content_type_admin_title($subtype, $conf, $context
   return t('"@s" book navigation', array('@s' => $context->identifier));
 }
 
-function ctools_node_book_nav_content_type_edit_form(&$form, &$form_state) {
+function ctools_node_book_nav_content_type_edit_form($form, &$form_state) {
   // provide a blank form so we have a place to have context setting.
+  return $form;
 }

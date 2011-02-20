@@ -1,4 +1,4 @@
-# $Id: panels.de.po,v 1.1.2.6 2009/09/18 20:54:21 hass Exp $
+# $Id: panels.de.po,v 1.2 2010/01/21 07:11:43 sdboyer Exp $
 #
 # LANGUAGE translation of Drupal (general)
 # Copyright YEAR NAME <EMAIL@ADDRESS>

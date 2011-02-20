@@ -1,5 +1,5 @@
 <?php
-// $Id: ruleset.inc,v 1.1.2.1 2010/07/26 22:09:19 merlinofchaos Exp $
+// $Id: ruleset.inc,v 1.2 2010/10/11 22:18:23 sdboyer Exp $
 
 /**
  * @file

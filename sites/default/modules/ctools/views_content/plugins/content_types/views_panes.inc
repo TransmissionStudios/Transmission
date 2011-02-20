@@ -1,5 +1,5 @@
 <?php
-// $Id: views_panes.inc,v 1.14.2.15 2010/08/20 21:20:40 merlinofchaos Exp $
+// $Id: views_panes.inc,v 1.24 2011/01/05 19:53:36 merlinofchaos Exp $
 
 /**
  * @file
@@ -8,7 +8,7 @@
  */
 
 /**
- * Implementation of hook_ctools_content_types()
+ * Implements hook_ctools_content_types()
  */
 function views_content_views_panes_ctools_content_types() {
   return array(
@@ -90,7 +90,7 @@ function _views_content_panes_content_type($view, $display) {
 
   $title = $display->handler->get_option('pane_title');
   if (!$title) {
-    $title = $view->name;
+    $title = t('@view: @display', array('@view' => $view->name, '@display' => $display->display_title));
   }
 
   $description = $display->handler->get_option('pane_description');
@@ -328,7 +328,7 @@ function views_content_views_panes_content_type_render($subtype, $conf, $panel_a
 /**
  * Returns an edit form for a block.
  */
-function views_content_views_panes_content_type_edit_form(&$form, &$form_state) {
+function views_content_views_panes_content_type_edit_form($form, &$form_state) {
   $conf = $form_state['conf'];
   $contexts = $form_state['contexts'];
   // This allows older content to continue to work, where we used to embed
@@ -538,6 +538,8 @@ function views_content_views_panes_content_type_edit_form(&$form, &$form_state) 
       $form['exposed'][$id][$info['value']]['#default_value'] = isset($conf['exposed'][$info['value']]) ? $conf['exposed'][$info['value']] : '';
     }
   }
+
+  return $form;
 }
 
 /**

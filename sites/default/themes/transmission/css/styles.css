@@ -11,9 +11,16 @@ caption, th, td, input, textarea, select, option, legend, fieldset {
 	font-family: 'MyriadWebProRegular' !important;
 }
 
+{
+	margin-bottom: 10px;
+}
+
+
+
 /*
  * Links
  */
+
 a:link {
 	color:#666;
 	text-decoration:none;
@@ -109,7 +116,7 @@ h1.title {
 	color: #666666;
 }
 
-.node h2.title {
+.node h2.node-title, .node h2.title {
 	font-size:30px;
 	/* 	font-family: 'MyriadWebBold';  */
 	margin-left: 470px;
@@ -133,14 +140,20 @@ h1.title {
 /*
  * Navigation
  */
+/* Menu */
+
  
 #navigation {
-	width:auto;	
+	position: absolute;
+	left:350px;
+	top:-60px;
+	width: auto;
 }
 
 #navigation ul{
 	padding:7px;
 	margin-left:80px;
+	list-style-type: none;
 }
 
 #navigation li {
@@ -149,11 +162,14 @@ h1.title {
 	font-size:14px;
 }
 
+
 /*
  * Forms
  */
  
 #search-block-form {
+	float: right;
+	margin-right: 10px;
 	padding:3px;
 }
 
@@ -192,7 +208,7 @@ h1.title {
 	margin-right: 10px;
 }
 
-#product-image {
+.node-type-project img {
 	float:left;
 }
 

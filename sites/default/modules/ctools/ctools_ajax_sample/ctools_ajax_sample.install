@@ -1,5 +1,5 @@
 <?php
-// $Id: ctools_ajax_sample.install,v 1.1.2.1 2010/08/20 02:18:46 merlinofchaos Exp $ 
+// $Id: ctools_ajax_sample.install,v 1.2 2010/10/11 22:18:23 sdboyer Exp $ 
 
 /**
  * @file 

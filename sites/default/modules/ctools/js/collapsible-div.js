@@ -1,4 +1,4 @@
-// $Id: collapsible-div.js,v 1.6.2.2 2009/10/09 17:10:00 merlinofchaos Exp $
+// $Id: collapsible-div.js,v 1.11 2010/10/11 22:18:22 sdboyer Exp $
 /**
  * @file
  * Javascript required for a simple collapsible div.
@@ -231,9 +231,11 @@
   /**
    * Support Drupal's 'behaviors' system for binding.
    */
-  Drupal.behaviors.CToolsCollapsible = function(context) {
-    $('.ctools-collapsible-container:not(.ctools-collapsible-processed)', context)
-      .each(Drupal.CTools.bindCollapsible)
-      .addClass('ctools-collapsible-processed');
+  Drupal.behaviors.CToolsCollapsible = { 
+    attach: function(context) {
+      $('.ctools-collapsible-container:not(.ctools-collapsible-processed)', context)
+        .each(Drupal.CTools.bindCollapsible)
+        .addClass('ctools-collapsible-processed');
+    }
   }
 })(jQuery);

@@ -1,5 +1,5 @@
 <?php
-// $Id: page_messages.inc,v 1.1.2.2 2010/02/02 21:49:21 merlinofchaos Exp $
+// $Id: page_messages.inc,v 1.3 2010/09/07 09:02:51 sdboyer Exp $
 
 /**
  * @file

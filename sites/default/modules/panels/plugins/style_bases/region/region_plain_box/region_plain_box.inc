@@ -1,5 +1,5 @@
 <?php
-// $Id: region_plain_box.inc,v 1.1.2.1 2010/07/13 23:55:58 merlinofchaos Exp $
+// $Id: region_plain_box.inc,v 1.2 2010/09/07 09:42:12 sdboyer Exp $
 
 /**
  * @file

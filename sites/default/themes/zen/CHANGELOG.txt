@@ -1,4 +1,35 @@
-// $Id: CHANGELOG.txt,v 1.163.2.17 2010/06/26 19:31:19 johnalbin Exp $
+Zen 7.x-3.x-dev, xxxx-xx-xx (development release)
+---------------------------
+- #950538 by hswong3i: User pictures should use .user-picture class
+- #1066478: Add missing title prefix/suffix variables to comment-wrapper.tpl
+- #1066472: Render comments and form to see if headings are needed
+- #1066452: Remove STARTERKIT_preprocess() placeholder since it's expensive and rarely needed
+- #1066436: STARTERKIT_theme() no longer needs to call zen_theme()
+- #1066426: No longer need to force the search for region__ suggestions
+- #1066386: Region tpls need to check for $content before printing wrapper
+- #1046030: Tabs div is always rendered
+- #1064390: Allow easier modification of breadcrumb's header
+- #1053036: Update screenshot.psd source image
+- #1061794 by Scott J and JohnAlbin: taxonomy terms no longer get special treatment in node.tpl
+- #936912 by n8tron and JohnAlbin: feed icon has wrong css class
+- #841988 by linclark and JohnAlbin: #navigation .content rule not targeting anything
+- #978640 by marcvangend: Whitespace before comment causes jQuery error
+- #1063814: Remove count-X and region-* classes from block.tpl.php
+- #1046394 by n8tron and JohnAlbin: Add first and last classes to blocks
+- #1060122: Add missing $block_html_id to block.tpl.php
+- #948666 by danillonunes and JohnAlbin: Update block classes in blocks.css
+- #1045116: Add accessible title text to theme_breadcrumbs to match markup in D7
+- #555910: "Append title to breadcrumbs" option shows doubled titles on non-default tabs
+- #1044586: Fix "Rebuild theme registry" feature
+- #923382: Conditional stylesheets should use drupal_add_css()
+- #987916: Submitted by text doesn't use $submitted variable introduced in Drupal 7.0-rc1
+- #978810 by bellHead: Region-specific template suggestions for sidebar regions always use region--sidebar.tpl.php
+- #986290: $tabs displaying as string 'Array' due to change in theme_menu_local_tasks()
+- #814978 by scor: The name attribute in an a tag is not valid in XHTML+RDFa 1.0
+- #875528 by linclark: Theme registry rebuilt warning not linked to admin page
+- #780690: Notice: Undefined index: date in _zen_preprocess_comment()
+- #729144 by Frank Ralf: Update STARTERKIT theme-settings.php for Drupal 7
+- #563060 by seutje and JohnAlbin: Port Zen to Drupal 7
 
 Zen 6.x-2.0, 2010-06-26
 -----------------------

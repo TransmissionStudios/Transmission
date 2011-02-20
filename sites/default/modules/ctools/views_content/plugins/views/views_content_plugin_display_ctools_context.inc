@@ -1,5 +1,5 @@
 <?php
-// $Id: views_content_plugin_display_ctools_context.inc,v 1.1.2.1 2010/07/20 00:17:09 merlinofchaos Exp $
+// $Id: views_content_plugin_display_ctools_context.inc,v 1.2 2010/10/11 22:18:23 sdboyer Exp $
 /**
  * @file
  * Contains the block display plugin.

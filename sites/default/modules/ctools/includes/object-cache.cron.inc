@@ -1,5 +1,5 @@
 <?php
-// $Id: object-cache.cron.inc,v 1.1.2.2 2010/08/27 23:47:17 merlinofchaos Exp $
+// $Id: object-cache.cron.inc,v 1.2 2010/10/11 22:18:22 sdboyer Exp $
 
 /**
  * @file

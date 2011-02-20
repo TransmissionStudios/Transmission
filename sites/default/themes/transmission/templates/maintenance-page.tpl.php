@@ -1,14 +1,10 @@
 <?php
-// $Id: maintenance-page.tpl.php,v 1.17 2009/11/04 20:49:23 johnalbin Exp $
-
 /**
- * @file maintenance-page.tpl.php
- *
- * Theme implementation to display a single Drupal page while off-line.
+ * @file
+ * Theme implementation to display a single Drupal page while offline.
  *
  * All the available variables are mirrored in page.tpl.php. Some may be left
  * blank but they are provided for consistency.
- *
  *
  * @see template_preprocess()
  * @see template_preprocess_maintenance_page()
@@ -45,12 +41,12 @@
           <?php if ($site_slogan): ?>
             <div id="site-slogan"><?php print $site_slogan; ?></div>
           <?php endif; ?>
-        </div> <!-- /#name-and-slogan -->
+        </div><!-- /#name-and-slogan -->
       <?php endif; ?>
 
       <?php print $header; ?>
 
-    </div></div> <!-- /.section, /#header -->
+    </div></div><!-- /.section, /#header -->
 
     <div id="main-wrapper"><div id="main" class="clearfix<?php if ($navigation) { print ' with-navigation'; } ?>">
 
@@ -61,49 +57,37 @@
         <?php if ($title): ?>
           <h1 class="title"><?php print $title; ?></h1>
         <?php endif; ?>
-        <?php if ($messages): print $messages; endif; ?>
+        <?php print $messages; ?>
 
-        <?php print $content_top; ?>
+        <?php print $content; ?>
 
-        <div id="content-area">
-          <?php print $content; ?>
-        </div>
-
-        <?php print $content_bottom; ?>
-
-      </div></div> <!-- /.section, /#content -->
+      </div></div><!-- /.section, /#content -->
 
       <?php if ($navigation): ?>
         <div id="navigation"><div class="section clearfix">
 
           <?php print $navigation; ?>
 
-        </div></div> <!-- /.section, /#navigation -->
+        </div></div><!-- /.section, /#navigation -->
       <?php endif; ?>
 
       <?php print $sidebar_first; ?>
 
       <?php print $sidebar_second; ?>
 
-    </div></div> <!-- /#main, /#main-wrapper -->
+    </div></div><!-- /#main, /#main-wrapper -->
 
-    <?php if ($footer || $footer_message): ?>
+    <?php if ($footer): ?>
       <div id="footer"><div class="section">
-
-        <?php if ($footer_message): ?>
-          <div id="footer-message"><?php print $footer_message; ?></div>
-        <?php endif; ?>
 
         <?php print $footer; ?>
 
-      </div></div> <!-- /.section, /#footer -->
+      </div></div><!-- /.section, /#footer -->
     <?php endif; ?>
 
-  </div></div> <!-- /#page, /#page-wrapper -->
+  </div></div><!-- /#page, /#page-wrapper -->
 
-  <?php print $page_closure; ?>
-
-  <?php print $closure; ?>
+  <?php print $bottom; ?>
 
 </body>
 </html>

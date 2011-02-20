@@ -1,5 +1,5 @@
 <?php
-// $Id: string.inc,v 1.3.2.3 2010/01/29 20:18:25 merlinofchaos Exp $
+// $Id: string.inc,v 1.7 2010/10/11 22:18:22 sdboyer Exp $
 
 /**
  * @file
@@ -42,13 +42,14 @@ function ctools_string_context($arg = NULL, $conf = NULL, $empty = FALSE) {
 /**
  * Settings form for the argument
  */
-function ctools_string_settings_form(&$form, &$form_state, $conf) {
+function ctools_string_settings_form($form, &$form_state, $conf) {
   $form['settings']['use_tail'] = array(
     '#title' => t('Get all arguments after this one'),
     '#type' => 'checkbox',
     '#default_value' => !empty($conf['use_tail']),
     '#description' => t('If checked, this string will include all arguments. For example, if the path is "path/%" and the user visits "path/foo/bar", if this is not checked the string will be "foo". If it is checked the string will be "foo/bar".'),
   );
+  return $form;
 }
 
 /**

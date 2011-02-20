@@ -1,5 +1,5 @@
 <?php
-// $Id: blog.inc,v 1.1.2.2 2010/01/29 21:21:31 merlinofchaos Exp $
+// $Id: blog.inc,v 1.3 2010/01/29 21:21:20 merlinofchaos Exp $
 
 /**
  * Specialized implementation of hook_page_manager_task_tasks(). See api-task.html for

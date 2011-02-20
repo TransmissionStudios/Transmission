@@ -1,5 +1,5 @@
 <?php
-// $Id: term_from_node.inc,v 1.2.2.3 2010/01/29 20:18:26 merlinofchaos Exp $
+// $Id: term_from_node.inc,v 1.6 2010/10/11 22:18:23 sdboyer Exp $
 
 /**
  * @file
@@ -16,8 +16,7 @@ $plugin = array(
   'description' => t('Adds a taxonomy term from a node context; if multiple terms are selected, this will get the "first" term only.'),
   'required context' => new ctools_context_required(t('Node'), 'node'),
   'context' => 'ctools_term_from_node_context',
-  'settings form' => 'ctools_term_from_node_settings_form',
-  'settings form validate' => 'ctools_term_from_node_settings_form_validate',
+  'edit form' => 'ctools_term_from_node_settings_form',
   'defaults' => array('vid' => ''),
 );
 
@@ -42,7 +41,9 @@ function ctools_term_from_node_context($context, $conf) {
 /**
  * Settings form for the relationship.
  */
-function ctools_term_from_node_settings_form($conf) {
+function ctools_term_from_node_settings_form($form, &$form_state) {
+  $conf = $form_state['conf'];
+
   $options = array();
   foreach (taxonomy_get_vocabularies() as $vid => $vocabulary) {
     $options[$vid] = $vocabulary->name;
@@ -52,7 +53,7 @@ function ctools_term_from_node_settings_form($conf) {
     '#type' => 'select',
     '#options' => $options,
     '#default_value' => $conf['vid'],
-    '#prefix' => '<div class="clear-block">',
+    '#prefix' => '<div class="clearfix">',
     '#suffix' => '</div>',
   );
 

@@ -1,5 +1,3 @@
-// $Id: README-FIRST.txt,v 1.4 2009/11/10 08:09:17 johnalbin Exp $
-
 WHERE TO START
 --------------
 

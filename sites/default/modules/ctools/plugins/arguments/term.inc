@@ -1,5 +1,5 @@
 <?php
-// $Id: term.inc,v 1.6.2.4 2010/07/05 19:22:35 merlinofchaos Exp $
+// $Id: term.inc,v 1.12 2010/12/31 21:31:50 merlinofchaos Exp $
 
 /**
  * @file
@@ -38,7 +38,7 @@ function ctools_term_context($arg = NULL, $conf = NULL, $empty = FALSE) {
       if (!is_numeric($arg)) {
         return FALSE;
       }
-      $term = taxonomy_get_term($arg);
+      $term = taxonomy_term_load($arg);
       break;
 
     case 'term':
@@ -76,14 +76,14 @@ function ctools_term_context($arg = NULL, $conf = NULL, $empty = FALSE) {
 /**
  * Settings form for the argument
  */
-function ctools_term_settings_form(&$form, &$form_state, $conf) {
+function ctools_term_settings_form($form, &$form_state, $conf) {
   // @todo allow synonym use like Views does.
   $form['settings']['input_form'] = array(
     '#title' => t('Argument type'),
     '#type' => 'radios',
     '#options' => array('tid' => t('Term ID'), 'term' => t('Term name')),
     '#default_value' => $conf['input_form'],
-    '#prefix' => '<div class="clear-block">',
+    '#prefix' => '<div class="clearfix">',
     '#suffix' => '</div>',
   );
 
@@ -106,6 +106,7 @@ function ctools_term_settings_form(&$form, &$form_state, $conf) {
     '#default_value' => !empty($conf['breadcrumb']),
     '#description' => t('If checked, taxonomy term parents will appear in the breadcrumb trail.'),
   );
+  return $form;
 }
 
 /**

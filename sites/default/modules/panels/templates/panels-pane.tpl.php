@@ -1,5 +1,5 @@
 <?php
-// $Id: panels-pane.tpl.php,v 1.1.2.1 2009/10/13 21:38:52 merlinofchaos Exp $
+// $Id: panels-pane.tpl.php,v 1.3 2010/10/11 22:56:02 sdboyer Exp $
 /**
  * @file panels-pane.tpl.php
  * Main panel pane template
@@ -20,9 +20,7 @@
 ?>
 <div class="<?php print $classes; ?>" <?php print $id; ?>>
   <?php if ($admin_links): ?>
-    <div class="admin-links panel-hide">
-      <?php print $admin_links; ?>
-    </div>
+    <?php print $admin_links; ?>
   <?php endif; ?>
 
   <?php if ($title): ?>
@@ -36,7 +34,7 @@
   <?php endif; ?>
 
   <div class="pane-content">
-    <?php print $content; ?>
+    <?php print render($content); ?>
   </div>
 
   <?php if ($links): ?>

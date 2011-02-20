@@ -1,5 +1,5 @@
 <?php
-// $Id: term_description.inc,v 1.1.2.1 2010/01/29 20:18:25 merlinofchaos Exp $
+// $Id: term_description.inc,v 1.4 2010/10/11 22:18:23 sdboyer Exp $
 
 /**
  * Plugins are described by creating a $plugin array which will be used
@@ -15,7 +15,7 @@ $plugin = array(
 );
 
 function ctools_term_description_content_type_render($subtype, $conf, $panel_args, $context) {
-  $term = isset($context->data) ? drupal_clone($context->data) : NULL;
+  $term = isset($context->data) ? clone($context->data) : NULL;
   $block = new stdClass();
   $block->module = 'node_type';
 
@@ -45,6 +45,7 @@ function ctools_term_description_content_type_admin_title($subtype, $conf, $cont
   return t('"@s" term description', array('@s' => $context->identifier));
 }
 
-function ctools_term_description_content_type_edit_form(&$form, &$form_state) {
+function ctools_term_description_content_type_edit_form($form, &$form_state) {
   // provide a blank form so we have a place to have context setting.
+  return $form;
 }

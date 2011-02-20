@@ -1,5 +1,5 @@
 <?php
-// $Id: views_row.inc,v 1.1.2.3 2010/08/27 16:20:30 merlinofchaos Exp $
+// $Id: views_row.inc,v 1.2 2010/10/11 22:18:22 sdboyer Exp $
 
 /**
  * @file
@@ -69,7 +69,7 @@ function views_content_views_row_content_type_render($subtype, $conf, $panel_arg
   return $block;
 }
 
-function views_content_views_row_content_type_edit_form(&$form, &$form_state) {
+function views_content_views_row_content_type_edit_form($form, &$form_state) {
   // This form does nothing; it exists to let the main form select the view context.
 }
 

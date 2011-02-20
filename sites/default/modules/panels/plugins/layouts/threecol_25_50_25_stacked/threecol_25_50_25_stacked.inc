@@ -1,5 +1,5 @@
 <?php
-// $Id: threecol_25_50_25_stacked.inc,v 1.1.2.3 2010/06/22 15:54:24 merlinofchaos Exp $
+// $Id: threecol_25_50_25_stacked.inc,v 1.4 2010/10/11 22:56:02 sdboyer Exp $
 
 // Plugin definition
 $plugin = array(
@@ -8,7 +8,7 @@ $plugin = array(
   'icon' => 'threecol_25_50_25_stacked.png',
   'theme' => 'panels_threecol_25_50_25_stacked',
   'css' => 'threecol_25_50_25_stacked.css',
-  'panels' => array(
+  'regions' => array(
     'top' => t('Top'),
     'left' => t('Left side'),
     'middle' => t('Middle column'),

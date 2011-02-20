@@ -1,4 +1,4 @@
-# $Id: panels.ja.po,v 1.1.2.1 2009/08/21 05:55:12 pineray Exp $
+# $Id: panels.ja.po,v 1.2 2010/01/21 07:11:43 sdboyer Exp $
 #
 # Japanese translation of Drupal (general)
 # Copyright PineRay <matsudaterutaka@gmail.com>

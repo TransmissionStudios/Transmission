@@ -1,5 +1,5 @@
 <?php
-// $Id: jump-menu.inc,v 1.1.2.3 2009/10/28 02:05:59 merlinofchaos Exp $
+// $Id: jump-menu.inc,v 1.3 2010/10/11 22:18:22 sdboyer Exp $
 
 /**
  * @file
@@ -62,7 +62,7 @@ function ctools_jump_menu($form_state, $select, $options = array()) {
     '#type' => 'select',
     '#options' => $select,
     '#attributes' => array(
-      'class' => 'ctools-jump-menu-select',
+      'class' => array('ctools-jump-menu-select'),
     ),
   );
 
@@ -84,7 +84,7 @@ function ctools_jump_menu($form_state, $select, $options = array()) {
       '#src' => $options['image'],
       '#submit' => array('ctools_jump_menu_submit'),
       '#attributes' => array(
-        'class' => 'ctools-jump-menu-button',
+        'class' => array('ctools-jump-menu-button'),
       ),
     );
   }
@@ -93,7 +93,7 @@ function ctools_jump_menu($form_state, $select, $options = array()) {
       '#type' => 'submit',
       '#value' => $options['button'],
       '#attributes' => array(
-        'class' => 'ctools-jump-menu-button',
+        'class' => array('ctools-jump-menu-button'),
       ),
     );
   }
@@ -104,8 +104,8 @@ function ctools_jump_menu($form_state, $select, $options = array()) {
   }
 
   if ($options['hide']) {
-    $form['jump']['#attributes']['class'] .= ' ctools-jump-menu-change';
-    $form['go']['#attributes']['class'] .= ' ctools-jump-menu-hide';
+    $form['jump']['#attributes']['class'][] = 'ctools-jump-menu-change';
+    $form['go']['#attributes']['class'][] = 'ctools-jump-menu-hide';
   }
 
   return $form;

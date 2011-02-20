@@ -1,5 +1,5 @@
 <?php
-// $Id: form.inc,v 1.1.2.1 2010/01/29 20:18:25 merlinofchaos Exp $
+// $Id: form.inc,v 1.3 2010/10/11 22:18:24 sdboyer Exp $
 
 /**
  * Plugins are described by creating a $plugin array which will be used
@@ -50,7 +50,8 @@ function ctools_form_content_type_admin_title($subtype, $conf, $context) {
   return t('"@s" base form', array('@s' => $context->identifier));
 }
 
-function ctools_form_content_type_edit_form(&$form, &$form_state) {
+function ctools_form_content_type_edit_form($form, &$form_state) {
   // provide a blank form so we have a place to override title
   // and stuff.
+  return $form;
 }

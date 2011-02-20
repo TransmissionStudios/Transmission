@@ -1,5 +1,5 @@
 <?php
-// $Id: string.inc,v 1.5.2.3 2010/01/29 20:18:26 merlinofchaos Exp $
+// $Id: string.inc,v 1.8 2010/01/29 20:18:02 merlinofchaos Exp $
 
 /**
  * @file

@@ -1,5 +1,5 @@
 <?php
-// $Id: node_body.inc,v 1.2.2.2 2010/07/24 18:01:11 merlinofchaos Exp $
+// $Id: node_body.inc,v 1.6 2010/10/11 22:18:22 sdboyer Exp $
 
 /**
  * Plugins are described by creating a $plugin array which will be used
@@ -26,7 +26,7 @@ function ctools_node_body_content_type_render($subtype, $conf, $panel_args, $con
   $node = $context->data;
 
   // Load information about the node type.
-  $type = node_get_types('type', $node->type);
+  $type = node_type_get_type($node);
 
   // Do not render if the body is disabled for this node type.
   if (!$type->has_body) {
@@ -48,8 +48,9 @@ function ctools_node_body_content_type_render($subtype, $conf, $panel_args, $con
 /**
  * Returns an edit form for custom type settings.
  */
-function ctools_node_body_content_type_edit_form(&$form, &$form_state) {
+function ctools_node_body_content_type_edit_form($form, &$form_state) {
   // provide a blank form so we have a place to have context setting.
+  return $form;
 }
 
 /**

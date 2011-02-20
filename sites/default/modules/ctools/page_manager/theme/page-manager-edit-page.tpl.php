@@ -1,5 +1,5 @@
 <?php
-// $Id: page-manager-edit-page.tpl.php,v 1.3 2009/08/19 01:12:24 merlinofchaos Exp $
+// $Id: page-manager-edit-page.tpl.php,v 1.4 2010/10/11 22:18:23 sdboyer Exp $
 /**
  * @file
  * Template for the page manager page editor.
@@ -14,11 +14,11 @@
   <?php print $locked; ?>
   <div class="page-manager-wrapper">
     <?php if (isset($operations['primary'])): ?>
-      <div class="primary-actions clear-block actions">
+      <div class="primary-actions clearfix actions">
         <?php print $operations['primary']; ?>
       </div>
     <?php endif; ?>
-    <div class="page-manager-tabs clear-block">
+    <div class="page-manager-tabs clearfix">
       <div class="page-manager-edit-operations">
         <div class="inside">
           <?php print $operations['nav']; ?>
@@ -32,7 +32,7 @@
               <?php print $content['title']; ?>
             </div>
             <?php if (isset($operations['secondary'])): ?>
-              <div class="secondary-actions clear-block actions">
+              <div class="secondary-actions clearfix actions">
                 <?php print $operations['secondary']; ?>
               </div>
             <?php endif; ?>

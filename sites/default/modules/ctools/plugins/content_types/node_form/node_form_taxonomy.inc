@@ -1,5 +1,5 @@
 <?php
-// $Id: node_form_taxonomy.inc,v 1.1.2.2 2010/04/14 21:02:12 merlinofchaos Exp $
+// $Id: node_form_taxonomy.inc,v 1.4 2010/10/11 22:18:23 sdboyer Exp $
 
 if (module_exists('taxonomy')) {
   /**
@@ -40,6 +40,7 @@ function ctools_node_form_taxonomy_content_type_admin_title($subtype, $conf, $co
   return t('"@s" node form select taxonomy', array('@s' => $context->identifier));
 }
 
-function ctools_node_form_taxonomy_content_type_edit_form(&$form, &$form_state) {
+function ctools_node_form_taxonomy_content_type_edit_form($form, &$form_state) {
   // provide a blank form so we have a place to have context setting.
+  return $form;
 }

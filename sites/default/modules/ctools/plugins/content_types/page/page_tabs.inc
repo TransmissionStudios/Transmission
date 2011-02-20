@@ -1,5 +1,5 @@
 <?php
-// $Id: page_tabs.inc,v 1.1.2.3 2010/02/03 01:18:58 merlinofchaos Exp $
+// $Id: page_tabs.inc,v 1.4 2010/10/11 22:18:22 sdboyer Exp $
 
 /**
  * @file
@@ -37,7 +37,7 @@ function ctools_page_tabs_content_type_render($subtype, $conf, $panel_args) {
 }
 
 
-function ctools_page_tabs_content_type_edit_form(&$form, &$form_state) {
+function ctools_page_tabs_content_type_edit_form($form, &$form_state) {
   $conf = $form_state['conf'];
 
   $form['type'] = array(
@@ -56,12 +56,13 @@ function ctools_page_tabs_content_type_edit_form(&$form, &$form_state) {
     '#type' => 'textfield',
     '#default_value' => $conf['id'],
   );
+  return $form;
 }
 
 /**
  * The submit form stores the data in $conf.
  */
-function ctools_page_tabs_content_type_edit_form_submit(&$form, &$form_state) {
+function ctools_page_tabs_content_type_edit_form_submit($form, &$form_state) {
   foreach (array_keys($form_state['plugin']['defaults']) as $key) {
     if (isset($form_state['values'][$key])) {
       $form_state['conf'][$key] = $form_state['values'][$key];

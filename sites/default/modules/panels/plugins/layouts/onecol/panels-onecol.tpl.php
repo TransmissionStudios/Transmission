@@ -1,5 +1,5 @@
 <?php
-// $Id: panels-onecol.tpl.php,v 1.1.2.1 2008/12/16 21:27:58 merlinofchaos Exp $
+// $Id: panels-onecol.tpl.php,v 1.3 2010/10/11 22:56:01 sdboyer Exp $
 /**
  * @file
  * Template for a 3 column panel layout.
@@ -13,7 +13,7 @@
  *   $content['middle']: The only panel in the layout.
  */
 ?>
-<div class="panel-display panel-1col clear-block" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>
+<div class="panel-display panel-1col clearfix" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>
   <div class="panel-panel panel-col">
     <div><?php print $content['middle']; ?></div>
   </div>

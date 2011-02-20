@@ -1,5 +1,5 @@
 <?php
-// $Id: node_links.inc,v 1.2.2.1 2010/01/29 20:18:25 merlinofchaos Exp $
+// $Id: node_links.inc,v 1.6 2010/12/31 21:06:18 merlinofchaos Exp $
 
 /**
  * Plugins are described by creating a $plugin array which will be used
@@ -15,7 +15,7 @@ $plugin = array(
   'defaults' => array(
     'override_title' => FALSE,
     'override_title_text' => '',
-    'teaser' => TRUE,
+    'build_mode' => '',
     'identifier' => '',
     'link' => TRUE,
   ),
@@ -30,7 +30,7 @@ function ctools_node_links_content_type_render($subtype, $conf, $panel_args, $co
     return;
   }
 
-  $node = isset($context->data) ? drupal_clone($context->data) : NULL;
+  $node = isset($context->data) ? clone($context->data) : NULL;
   $block = new stdClass();
   $block->module = 'node';
   $block->delta  = $node->nid;
@@ -46,8 +46,8 @@ function ctools_node_links_content_type_render($subtype, $conf, $panel_args, $co
     }
 
     $block->subject = $node->title;
-
-    $block->content = ctools_node_links_render_links($node, $conf);
+    node_build_content($node, $conf['build_mode']);
+    $block->content = $node->content['links'];
   }
 
   if (!empty($conf['link']) && $node) {
@@ -56,21 +56,10 @@ function ctools_node_links_content_type_render($subtype, $conf, $panel_args, $co
   return $block;
 }
 
-function ctools_node_links_render_links($node, $conf) {
-  // The build mode identifies the target for which the node is built.
-  if (!isset($node->build_mode)) {
-    $node->build_mode = NODE_BUILD_NORMAL;
-  }
-
-  $links = module_invoke_all('link', 'node', $node, $conf['teaser']);
-  drupal_alter('link', $links, $node);
-  return theme('links', $links);
-}
-
 /**
  * Returns an edit form for the custom type.
  */
-function ctools_node_links_content_type_edit_form(&$form, &$form_state) {
+function ctools_node_links_content_type_edit_form($form, &$form_state) {
   $conf = $form_state['conf'];
 
   $form['link'] = array(
@@ -79,11 +68,19 @@ function ctools_node_links_content_type_edit_form(&$form, &$form_state) {
     '#default_value' => $conf['link'],
     '#description' => t('Check here to make the title link to the node.'),
   );
-  $form['teaser'] = array(
-    '#title' => t('Teaser mode'),
-    '#type' => 'checkbox',
-    '#default_value' => $conf['teaser'],
-    '#description' => t('Check here to show links in teaser mode.'),
+
+  $entity = entity_get_info('node');
+  $build_mode_options = array();
+  foreach ($entity['view modes'] as $mode => $option) {
+    $build_mode_options[$mode] = $option['label'];
+  }
+
+  $form['build_mode'] = array(
+    '#title' => t('Build mode'),
+    '#type' => 'select',
+    '#description' => t('Select a build mode for this node.'),
+    '#options' => $build_mode_options,
+    '#default_value' => $conf['build_mode'],
   );
 
   $form['identifier'] = array(
@@ -96,7 +93,7 @@ function ctools_node_links_content_type_edit_form(&$form, &$form_state) {
   return $form;
 }
 
-function ctools_node_links_content_type_edit_form_submit(&$form, &$form_state) {
+function ctools_node_links_content_type_edit_form_submit($form, &$form_state) {
   // Copy everything from our defaults.
   foreach (array_keys($form_state['plugin']['defaults']) as $key) {
     $form_state['conf'][$key] = $form_state['values'][$key];

@@ -1,5 +1,5 @@
 <?php
-// $Id: custom.inc,v 1.9.2.15 2010/10/19 21:27:41 merlinofchaos Exp $
+// $Id: custom.inc,v 1.17 2011/01/05 22:57:26 merlinofchaos Exp $
 
 /**
  * @file
@@ -17,7 +17,7 @@
 $plugin = array(
   'title' => t('Custom content'),
   'no title override' => TRUE,
-  'defaults' => array('admin_title' => '', 'title' => '', 'body' => '', 'format' => FILTER_FORMAT_DEFAULT, 'substitute' => TRUE),
+  'defaults' => array('admin_title' => '', 'title' => '', 'body' => '', 'format' => filter_fallback_format(), 'substitute' => TRUE),
   'js' => array('misc/autocomplete.js', 'misc/textarea.js', 'misc/collapse.js'),
   // Make sure the edit form is only used for some subtypes.
   'edit form' => '',
@@ -129,7 +129,7 @@ function ctools_custom_content_type_get_conf($subtype, $conf) {
           'admin_title' => t('Missing/deleted content'),
           'title' => '',
           'body' => '',
-          'format' => FILTER_FORMAT_DEFAULT,
+          'format' => filter_fallback_format(),
           'substitute' => TRUE,
           'custom_type' => 'fixed',
           'content' => $content,
@@ -174,7 +174,7 @@ function ctools_custom_content_type_render($subtype, $conf, $args, $contexts) {
     $content = ctools_context_keyword_substitute($content, array(), $contexts);
   }
 
-  $block->content = check_markup($content, $settings['format'], FALSE);
+  $block->content = check_markup($content, $settings['format']);
   return $block;
 }
 
@@ -221,7 +221,8 @@ function ctools_custom_content_type_admin_info($subtype, $conf) {
   // If a php filter is active, just print the source, but only if the current
   // user has access to the actual filter.
   if ($php_filter) {
-    if (!filter_access($settings['format'])) {
+    $filter = filter_format_load($settings['format']);
+    if (!filter_access($filter)) {
       return NULL;
     }
     $block->content = '<pre>'. check_plain($settings['body']) .'</pre>';
@@ -237,7 +238,7 @@ function ctools_custom_content_type_admin_info($subtype, $conf) {
 /**
  * Returns an edit form for the custom type.
  */
-function ctools_custom_content_type_edit_form(&$form, &$form_state) {
+function ctools_custom_content_type_edit_form($form, &$form_state) {
   $settings = ctools_custom_content_type_get_conf($form_state['subtype'], $form_state['conf']);
   $form_state['settings'] = $settings;
 
@@ -258,13 +259,12 @@ function ctools_custom_content_type_edit_form(&$form, &$form_state) {
     '#title' => t('Title'),
   );
 
-  $form['body_field']['body'] = array(
+    $form['body'] = array(
+    '#type' => 'text_format',
     '#title' => t('Body'),
-    '#type' => 'textarea',
     '#default_value' => $settings['body'],
+    '#format' => $settings['format'],
   );
-  $parents[] = 'format';
-  $form['body_field']['format'] = filter_form($settings['format'], 1, $parents);
 
   if (!empty($form_state['contexts'])) {
     // Set extended description if both CCK and Token modules are enabled, notifying of unlisted keywords
@@ -339,6 +339,7 @@ function ctools_custom_content_type_edit_form(&$form, &$form_state) {
     '#process' => array('ctools_dependent_process'),
     '#dependency' => array('edit-reusable' => array(1)),
   );
+  return $form;
 }
 
 function _ctools_custom_content_type_edit_save(&$content, $form_state) {
@@ -380,7 +381,7 @@ function ctools_custom_content_type_edit_form_validate(&$form, &$form_state) {
 /**
  * The submit form stores the data in $conf.
  */
-function ctools_custom_content_type_edit_form_submit(&$form, &$form_state) {
+function ctools_custom_content_type_edit_form_submit($form, &$form_state) {
   if ($form_state['settings']['custom_type'] == 'fixed') {
     _ctools_custom_content_type_edit_save($form_state['settings']['content'], $form_state);
   }
@@ -394,8 +395,12 @@ function ctools_custom_content_type_edit_form_submit(&$form, &$form_state) {
   }
   else {
     // Otherwise, just save values into $conf normally.
+    // Because of changes in filter form, these two keys are out of position:
+    $form_state['conf']['body'] = $form_state['values']['body']['value'];
+    $form_state['conf']['format'] = $form_state['values']['body']['format'];
+
     foreach (array_keys($form_state['plugin']['defaults']) as $key) {
-      if (isset($form_state['values'][$key])) {
+      if (isset($form_state['values'][$key]) && $key != 'body' && $key != 'format') {
         $form_state['conf'][$key] = $form_state['values'][$key];
       }
     }

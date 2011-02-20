@@ -1,5 +1,5 @@
 <?php
-// $Id: node_form_log.inc,v 1.1.2.1 2010/01/29 20:18:25 merlinofchaos Exp $
+// $Id: node_form_log.inc,v 1.3 2010/10/11 22:18:23 sdboyer Exp $
 
 /**
  * Plugins are described by creating a $plugin array which will be used
@@ -27,6 +27,7 @@ function ctools_node_form_log_content_type_admin_title($subtype, $conf, $context
   return t('"@s" node form revision log', array('@s' => $context->identifier));
 }
 
-function ctools_node_form_log_content_type_edit_form(&$form, &$form_state) {
+function ctools_node_form_log_content_type_edit_form($form, &$form_state) {
   // provide a blank form so we have a place to have context setting.
+  return $form;
 }

@@ -1,5 +1,5 @@
 <?php
-// $Id: string_equal.inc,v 1.1.2.3 2009/12/29 05:44:04 merlinofchaos Exp $
+// $Id: string_equal.inc,v 1.3 2010/10/11 22:18:22 sdboyer Exp $
 
 /**
  * @file
@@ -19,7 +19,7 @@ $plugin = array(
 /**
  * Settings form
  */
-function ctools_string_equal_ctools_access_settings(&$form, &$form_state, $conf) {
+function ctools_string_equal_ctools_access_settings($form, &$form_state, $conf) {
   $form['settings']['operator'] = array(
     '#type' => 'radios',
     '#title' => t('Operator'),
@@ -44,6 +44,7 @@ function ctools_string_equal_ctools_access_settings(&$form, &$form_state, $conf)
     '#title' => t('Case sensitive'),
     '#default_value' => $conf['case'],
   );
+  return $form;
 }
 
 /**

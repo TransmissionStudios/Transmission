@@ -1,5 +1,5 @@
 <?php
-// $Id: ctools_access_ruleset.inc,v 1.1.2.1 2010/07/14 01:33:03 merlinofchaos Exp $
+// $Id: ctools_access_ruleset.inc,v 1.2 2010/10/11 22:18:23 sdboyer Exp $
 
 $plugin = array(
   'schema' => 'ctools_access_ruleset',
@@ -16,10 +16,7 @@ $plugin = array(
   'title plural' => t('rulesets'),
   'title plural proper' => t('Rulesets'),
 
-  'handler' => array(
-    'class' => 'ctools_access_ruleset_ui',
-    'parent' => 'ctools_export_ui',
-  ),
+  'handler' => 'ctools_access_ruleset_ui',
 
   'use wizard' => TRUE,
   'form info' => array(

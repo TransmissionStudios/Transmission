@@ -1,5 +1,5 @@
 <?php
-// $Id: node_language.inc,v 1.7.2.3 2010/07/14 01:30:19 merlinofchaos Exp $
+// $Id: node_language.inc,v 1.11 2010/10/11 22:18:22 sdboyer Exp $
 
 /**
  * @file
@@ -26,7 +26,7 @@ if (module_exists('locale')) {
 /**
  * Settings form for the 'by node_language' access plugin
  */
-function ctools_node_language_ctools_access_settings(&$form, &$form_state, $conf) {
+function ctools_node_language_ctools_access_settings($form, &$form_state, $conf) {
   $options = array(
     'current' => t('Current site language'),
     'default' => t('Default site language'),
@@ -40,6 +40,7 @@ function ctools_node_language_ctools_access_settings(&$form, &$form_state, $conf
     '#description' => t('Pass only if the node is in one of the selected languages.'),
     '#default_value' => $conf['language'],
   );
+  return $form;
 }
 
 /**

@@ -1,9 +1,9 @@
-<?php 
-// $Id: imagerotate.inc,v 1.3.4.3 2009/03/18 08:35:59 drewish Exp $
+<?php
+// $Id: imagerotate.inc,v 1.7 2010/10/17 18:18:07 drewish Exp $
 
-/** 
+/**
  * @file
- * provides the imagerotate function for php-gd extensions compiled with the 
+ * provides the imagerotate function for php-gd extensions compiled with the
  * upstream libgd instead of the libgd bundled with php.
  */
 
@@ -12,7 +12,7 @@
 define('IMAGEAPI_IMAGEROTATE_PHP', 1);
 
 function imagerotate(&$im, $angle, $bgcolor) {
-  if ($angle === 0) { 
+  if ($angle === 0) {
     return $im;
   }
   // imagerotate() in php's libgd rotates the image counterclockwise,
@@ -71,17 +71,17 @@ function imagerotate(&$im, $angle, $bgcolor) {
   $rotate = imagecreatetruecolor($rot_width, $rot_height);
   $bg = imagecolorallocatealpha($rotate, $r, $g, $b, $a);
   imagefilledrectangle($rotate, 0, 0, $rot_width, $rot_height, $bg);
-  imagealphablending($rotate, FALSE);
-  imagesavealpha($rotate, TRUE);
+  imagealphablending($rotate, false);
+  imagesavealpha($rotate, true);
 
   switch ($angle) {
-    case 270:
+    case 90:
       $rot_width--;
       for ($y = 0; $y < $height; ++$y)
         for ($x = 0; $x < $width; ++$x)
           imagesetpixel($rotate, $rot_width - $y, $x, imagecolorat($im, $x, $y));
       break;
-    case 90:
+    case 270:
       $rot_height--;
       for ($y = 0; $y < $height; ++$y)
         for ($x = 0; $x < $width; ++$x)
