@@ -99,10 +99,10 @@
   <?php endif; ?>
 
 	<?php
-		$devKey = 'ABQIAAAAFl77mNVTBDIxcIFDYVLtrBS2YoDOH1_EenGei1y4QGQ5O8iqGRTyB39w69BuCia-elL_NGE54ZOd8w';
+		$devKey = '';
 		$liveKey = 'ABQIAAAAFl77mNVTBDIxcIFDYVLtrBRpz-37fZHG1fMEgnZtlphUxMsBKRSt2mbCOcdy-OaGuVIG5top6f-s9w';
 	
-	  drupal_add_html_head('<script rel="lightbox" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key='.$liveKey.'"
+	  echo '<script rel="lightbox" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key='.$liveKey.'"
 	      type="text/javascript"></script>
 	    <script type="text/javascript">
 
@@ -133,7 +133,7 @@
 	    window.onunload = function() {
 	      GUnload();
 	    } 
-	  </script>');
+	  </script>'
 	?>
 	
 	<?php print ('<div id="map" style="width: 400px; height: 300px"></div>'); ?>
