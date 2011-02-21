@@ -98,9 +98,9 @@
     </div>
   <?php endif; ?>
 
-<div id="contactContent about">	
+<div id="contactContent">	
 
-  <div id="map"><img src="../sites/default/files/process.jpg" alt="Web Design Process" /></div>
+  <div id="aboutImage"><img src="../sites/default/files/process.jpg" alt="Web Design Process" /></div>
 
 	<div id="contactInfo">
   		<p>Transmission is a digital design and development studio with offices in London. We have particular experience in B2B and have worked with several major global brands.</p>
