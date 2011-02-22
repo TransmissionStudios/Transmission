@@ -89,7 +89,7 @@
  *   $db_url = 'mysqli://username:password@localhost/databasename';
  *   $db_url = 'pgsql://username:password@localhost/databasename';
  */
-$db_url = 'mysqli://root:root@localhost/transmission'; 	//Dev server
+$db_url = 'mysqli://root@127.0.0.1/transmission'; 	//Dev server
 //$db_url = 'mysqli://transmi1_transmi:transmi1@localhost/transmi1_trans';	//Live server
 //$db_url = 'mysqli://transmi1_test:gta03@localhost/transmi1_trans';	//Live server
 $db_prefix = '';
@@ -148,6 +148,7 @@ ini_set('session.use_cookies',      1);
 ini_set('session.use_only_cookies', 1);
 ini_set('session.use_trans_sid',    0);
 ini_set('url_rewriter.tags',        '');
+ini_set("memory_limit",				"128M");
 
 /**
  * If you encounter a situation where users post a large amount of text, and
@@ -249,7 +250,7 @@ $databases = array (
       'database' => 'transmission',
       'username' => 'root',
       'password' => '',
-      'host' => 'localhost',
+      'host' => '127.0.0.1',
       'port' => '',
       'prefix' => '',
     ),
