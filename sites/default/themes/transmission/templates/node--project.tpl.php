@@ -98,9 +98,9 @@
     </div>
   <?php endif; ?>
 
-<div class="content">
-    <div id="product-image"><?php print render($content['field_project_image']);  ?></div>
-	<h2 class="title"><?php print $title; ?></h2>
+<div class="content project">
+    <div id="product-image"><a href="<?php print $node_url ?>"><?php print render($content['field_project_image']);  ?></a></div>
+	<h2 class="title"><a href="<?php print $node_url ?>"><?php print $title; ?></a></h2>
 		<?php print render($content['body']);  ?>
   </div>
 

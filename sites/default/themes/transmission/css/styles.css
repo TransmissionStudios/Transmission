@@ -105,7 +105,7 @@ fieldset {
 }
 
 .node-teaser {
-	padding:15px !important;
+	padding:15px 0px !important;
 	height:290px;
 }
 
@@ -194,22 +194,26 @@ h1.title {
  * Projects
  */
  
-.node-type-project {
+.node-type-project h1 {
+	display: none;
+}
+
+.project {
 	background-color:#f3f3f3;
 	padding:15px;
 	border-radius: 10px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	-khtml-border-radius: 10px;
-	
+	min-height: 290px;
 }
 
-.node-type-project p {
+.project p {
 	margin-left: 470px;
 	margin-right: 10px;
 }
 
-.node-type-project img {
+.project img {
 	float:left;
 }
 
