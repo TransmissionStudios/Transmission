@@ -3,7 +3,7 @@
 body {
   font-size: 100%; /* Fixes exaggerated text resizing in IE6 and IE7 */
 	font-family: 'MyriadWebProRegular' !important;
-	color:red;
+	color:#333;
 	/* 	background-image:url('../images/bground.jpg');  */
 }
 
